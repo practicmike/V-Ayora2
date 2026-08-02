@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "V. Ayora"
+description = "Portfolio and print store for V. Ayora, a visual artist and musician known for immersive art installations and performances at festivals like Coachella and Burning Man. The site combines a museum-quality gallery experience with a functional print store and a music/festival identity section."
+version = "1.0.0"
+id = "artifacts/v-ayora"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24256
+
+[services.development]
+run = "pnpm --filter @workspace/v-ayora run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/v-ayora", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/v-ayora/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24256"
+BASE_PATH = "/"

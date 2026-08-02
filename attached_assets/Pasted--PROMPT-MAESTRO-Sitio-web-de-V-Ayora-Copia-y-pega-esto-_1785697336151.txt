@@ -1,0 +1,123 @@
+# PROMPT MAESTRO — Sitio web de V. Ayora
+
+> Copia y pega esto completo en Replit (Agent/Ghostwriter). Está pensado para que la primera entrega sea HTML/CSS/JS vanilla, con estructura ya "React-friendly" para que la migración a React + Vite después sea directa (componentes claros, sin spaghetti, CSS con variables, JS modular).
+
+---
+
+## 1. CONTEXTO DEL PROYECTO
+
+Construye un sitio web desde cero para **V. Ayora**, artista visual y músico. El sitio tiene dos objetivos que deben convivir sin que uno le gane al otro:
+
+1. **Museo / portafolio experiencial**: el sitio debe sentirse como recorrer una exhibición de su obra y su trayectoria — no como un portafolio de agencia ni una tienda genérica.
+2. **Tienda funcional de prints**: piezas de arte impresas, en tamaños desde A4 hasta el triple de A4 (aprox. A4, A2, A1 — o equivalentes en cm), con precio y compra real.
+
+V. Ayora también hace música y ha colaborado con festivales de talla internacional (Coachella, Burning Man y similares). Esto no es un dato secundario: es parte central de su identidad y debe tener presencia propia en el sitio (no un párrafo escondido en "About").
+
+---
+
+## 2. DIRECCIÓN ESTÉTICA
+
+Referencia de partida: **argentum.com** (lujo minimalista, misticismo, paleta monocromática, tipografía serif elegante + sans-serif de letras espaciadas, mucho espacio negativo, micro-interacciones sutiles).
+
+**Importante: no es un clon.** Toma el *lenguaje* de diseño (minimalismo, ritual, espacio, tipografía) y tradúcelo a la identidad de V. Ayora, que es distinta: arte visual + música + cultura de festival (más terrenal, más orgánico, menos "spa de lujo"). Piensa en la diferencia entre un templo alquímico (Argentum) y una galería/estudio nocturno de un artista que también toca en el desierto (V. Ayora).
+
+### Paleta
+- Base: negro casi puro (`#0a0a0a` / `#0d0d0d`) y blanco hueso (`#f5f4f0`), no blanco puro.
+- Acento: un solo color de firma derivado de la obra de V. Ayora (si no hay uno definido aún, propone un tono cálido tipo bronce/ocre `#b8860b`-ish o un rojo óxido — algo que remita a atardecer de desierto/festival, NO plata/silver porque eso es literalmente Argentum).
+- Grises intermedios solo para texto secundario, nunca como protagonistas.
+
+### Tipografía
+- Títulos: serif elegante con carácter (ej. Cormorant, Fraunchen, Canela — Replit puede usar Google Fonts equivalentes tipo `Cormorant Garamond` o `Playfair Display`).
+- Texto/UI/menú: sans-serif minimalista con letter-spacing amplio en mayúsculas para navegación (ej. `Jost`, `Space Grotesk`, `Inter`).
+- Uso de cursivas (`<em>`) para frases poéticas/curatoriales, igual que Argentum usa el `~` — pero define un símbolo o motivo propio para V. Ayora (puede ser un asterisco, una forma geométrica simple, o un trazo). No reutilizar el `~` de Argentum literalmente.
+
+### Layout y espaciado
+- Secciones con padding vertical generoso (`5–8rem`), sensación de "sala" entre una pieza y otra.
+- Cada obra/print se presenta como si estuviera "colgada" en una sala: mucho aire alrededor, sin grids apretados tipo e-commerce tradicional.
+- Transiciones entre secciones deben sentirse como pasar de una sala del museo a otra (scroll suave, fade-ins sutiles al entrar en viewport, sin exagerar).
+
+### Micro-interacciones
+- Hover en piezas: leve zoom o cambio de brillo/saturación (no filtros grises tipo Argentum, mejor un efecto de "iluminación" — como si un spot de museo se encendiera sobre la pieza).
+- Botones minimalistas que invierten color al hover (fondo↔texto).
+- Cursor personalizado opcional en la sección de galería (un punto o pequeño texto "ver pieza") — solo si no complica demasiado el desarrollo inicial.
+
+---
+
+## 3. ARQUITECTURA DEL SITIO (mapa de "salas")
+
+Diseña el sitio como un recorrido, con esta estructura de navegación:
+
+1. **Hero / Entrada**
+   - Pantalla completa, imagen o video corto de una obra o de V. Ayora en acción (instalación, set en vivo).
+   - Frase curatorial corta, poética, en serif cursiva.
+   - Sin menú saturado: 3–4 items máximo (Obra / Música / Sobre / Contacto o Tienda).
+
+2. **Sala de Obra (Galería / Museo)**
+   - Grid curado (no cuadrícula perfecta tipo Instagram) de piezas destacadas.
+   - Click en una pieza abre una "vista de sala": imagen grande, ficha técnica (técnica, año, dimensiones disponibles, edición si aplica), y precio por tamaño.
+   - Filtros simples: por tamaño, por serie/colección, por disponibilidad.
+
+3. **Tienda de Prints (funcionalidad dual — ver sección 4)**
+   - Cada print con selector de tamaño (A4 / A3 / A2 o el equivalente al "triple de A4") y precio dinámico según tamaño.
+   - Botón principal: **"Comprar ahora"** (checkout real).
+   - Botón secundario: **"Consultar / Pieza especial"** (contacto directo) para ediciones grandes, personalizadas o piezas únicas.
+
+4. **Sala de Música / Festivales**
+   - Sección propia, no un anexo. Debe transmitir escala: menciones a Coachella, Burning Man y festivales similares (usa nombres reales solo si V. Ayora confirma que puede mencionarlos públicamente — de lo contrario, generaliza a "festivales internacionales de arte inmersivo").
+   - Player embebido (Spotify/SoundCloud) o enlaces a sets.
+   - Fotos/video de instalaciones o performances en vivo — este es el contenido que más debe sentirse "experiencial".
+
+5. **Sobre V. Ayora**
+   - Bio curatorial, no un CV. Tono en primera o tercera persona poética, corto.
+   - Línea de tiempo o "hitos" en formato editorial (no bullet points de LinkedIn).
+
+6. **Contacto / Newsletter**
+   - Formulario simple + WhatsApp/email directo.
+   - Opción de suscripción para "nuevas piezas" o "próximas fechas".
+
+---
+
+## 4. REQUERIMIENTOS FUNCIONALES DE LA TIENDA
+
+Necesitamos **ambas modalidades**, no una u otra:
+
+- **Checkout real** para piezas de catálogo estándar (tamaños definidos, stock/ediciones numeradas):
+  - Integración con **Stripe** y/o **MercadoPago** (MercadoPago es prioritario por operar en México).
+  - Selector de tamaño con precio que se actualiza dinámicamente.
+  - Carrito simple, resumen de compra, captura de dirección de envío.
+  - Confirmación por email tras la compra (puede ser simulado/placeholder en esta primera versión si Replit no puede conectar un backend de emails todavía — dejar el punto de integración claramente marcado en el código).
+
+- **Contacto directo** para piezas especiales, formatos fuera de catálogo, encargos, o cuando el usuario prefiera no pagar en línea:
+  - Botón "Consultar por WhatsApp" con mensaje prellenado (nombre de la pieza).
+  - Formulario de contacto alternativo con email.
+
+Deja el código organizado para que sea fácil:
+- Separar lógica de "producto" (datos: nombre, imagen, tamaños, precios, disponibilidad) en un archivo/objeto central tipo `products.js` — así al migrar a React esto se convierte directo en un `products.json` o CMS.
+- Separar componentes visuales en bloques claros (Hero, GallerySection, ProductCard, ProductModal, MusicSection, AboutSection, ContactSection, Footer) aunque estén en HTML/JS plano — usa comentarios de sección tipo `<!-- ===== COMPONENTE: ProductCard ===== -->` para que la migración a React sea mecánica.
+- Usar variables CSS (`:root { --color-bg, --color-accent, --font-serif, --font-sans, --spacing-section }`) en vez de valores sueltos, para que el theming sea centralizado.
+
+---
+
+## 5. TONO DE COPY
+
+- Frases cortas, evocadoras, nunca genéricas ("compra arte" está prohibido).
+- Los nombres de las piezas y colecciones en minúsculas o formato editorial, como hace Argentum con sus productos — pero el copy debe sentirse propio de V. Ayora: más desierto, más ritual colectivo/festival, menos "spa alquímico".
+- Evitar cualquier lenguaje que suene a plantilla de Shopify ("¡Envío gratis!", "¡Oferta limitada!"). Si hay promociones, se comunican con el mismo tono curatorial del resto del sitio.
+
+---
+
+## 6. ENTREGABLES QUE ESPERO DE REPLIT
+
+1. Sitio completo en HTML/CSS/JS vanilla, responsive (mobile-first, ya que buena parte del tráfico de festivales/redes será desde celular).
+2. Estructura de carpetas limpia: `/assets`, `/css`, `/js`, `/data` (para `products.js` y contenido de galería).
+3. Placeholders claros donde se necesite integración real (Stripe/MercadoPago keys, backend de email, CMS de imágenes) — comentados en el código, no simulados de forma que parezca funcional cuando no lo es.
+4. Sin frameworks pesados de UI (nada de Bootstrap genérico) — CSS propio que respete la dirección estética descrita.
+5. Performance: imágenes optimizadas/lazy-loaded, ya que la galería es pesada en imágenes.
+
+---
+
+## 7. NOTA PARA LA MIGRACIÓN FUTURA (no construir ahora, solo tenerlo en mente)
+
+Este sitio se migrará después a React + Vite. Por eso:
+- Evita lógica de JS fuertemente acoplada al DOM que sea difícil de traducir a estado de React (por ejemplo, evita manipular `innerHTML` en cascada; prefiere funciones que renderizan bloques completos a partir de datos).
+- Cada "sección" del sitio debe poder pensarse como un futuro componente independiente con sus propios datos de entrada.
