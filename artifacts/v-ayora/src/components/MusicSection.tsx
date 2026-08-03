@@ -15,7 +15,7 @@ export default function MusicSection() {
         <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/80 to-background z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background z-10" />
         <img 
-          src="/attached_assets/generated_images/festival-1.jpg" 
+          src="/images/festival-1.jpg" 
           alt="Festival Atmosphere"
           className="w-full h-full object-cover"
         />
@@ -71,7 +71,7 @@ export default function MusicSection() {
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-16">
               <img 
-                src="/attached_assets/generated_images/festival-2.jpg" 
+                src="/images/festival-2.jpg" 
                 alt="Live Performance" 
                 className="w-full aspect-[4/3] object-cover filter grayscale hover:grayscale-0 transition-all duration-700"
               />

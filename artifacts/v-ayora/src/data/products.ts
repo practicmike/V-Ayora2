@@ -29,7 +29,7 @@ export const products: Product[] = [
     technique: "pigmento natural y óleo sobre lienzo crudo",
     year: 2024,
     available: true,
-    image: "/attached_assets/generated_images/gallery-1.jpg",
+    image: "/images/gallery-1.jpg",
     sizes: artworkSizes,
   },
   {
@@ -39,7 +39,7 @@ export const products: Product[] = [
     technique: "arena, ceniza y acrílico",
     year: 2024,
     available: true,
-    image: "/attached_assets/generated_images/gallery-2.jpg",
+    image: "/images/gallery-2.jpg",
     sizes: artworkSizes,
   },
   {
@@ -49,7 +49,7 @@ export const products: Product[] = [
     technique: "tinta y bronce oxidado",
     year: 2023,
     available: true,
-    image: "/attached_assets/generated_images/gallery-3.jpg",
+    image: "/images/gallery-3.jpg",
     sizes: artworkSizes,
   },
   {
@@ -59,7 +59,7 @@ export const products: Product[] = [
     technique: "carbón y concreto líquido",
     year: 2023,
     available: false,
-    image: "/attached_assets/generated_images/gallery-4.jpg",
+    image: "/images/gallery-4.jpg",
     sizes: artworkSizes,
   },
   {
@@ -69,7 +69,7 @@ export const products: Product[] = [
     technique: "acrílico y polvo de cobre",
     year: 2024,
     available: true,
-    image: "/attached_assets/generated_images/gallery-5.jpg",
+    image: "/images/gallery-5.jpg",
     sizes: artworkSizes,
   },
   {
@@ -79,7 +79,7 @@ export const products: Product[] = [
     technique: "óxido de hierro sobre papel de algodón",
     year: 2023,
     available: true,
-    image: "/attached_assets/generated_images/gallery-6.jpg",
+    image: "/images/gallery-6.jpg",
     sizes: artworkSizes,
   },
 ];
@@ -92,7 +92,7 @@ export const storeProducts: Product[] = [
     technique: "fine art giclée sobre papel hahnemühle",
     year: 2024,
     available: true,
-    image: "/attached_assets/generated_images/store-1.jpg",
+    image: "/images/store-1.jpg",
     sizes: artworkSizes,
   },
   {
@@ -102,7 +102,7 @@ export const storeProducts: Product[] = [
     technique: "fine art giclée sobre papel hahnemühle",
     year: 2024,
     available: true,
-    image: "/attached_assets/generated_images/store-2.jpg",
+    image: "/images/store-2.jpg",
     sizes: artworkSizes,
   },
   {
@@ -112,7 +112,7 @@ export const storeProducts: Product[] = [
     technique: "fine art giclée sobre papel hahnemühle",
     year: 2024,
     available: true,
-    image: "/attached_assets/generated_images/store-3.jpg",
+    image: "/images/store-3.jpg",
     sizes: artworkSizes,
   },
 ];

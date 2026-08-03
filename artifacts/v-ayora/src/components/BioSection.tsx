@@ -38,7 +38,7 @@ export default function BioSection() {
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent mix-blend-overlay z-10" />
               <img 
-                src="/attached_assets/generated_images/portrait.jpg" 
+                src="/images/portrait.jpg" 
                 alt="V. Ayora"
                 className="w-full h-full object-cover grayscale-[0.5] contrast-125"
               />

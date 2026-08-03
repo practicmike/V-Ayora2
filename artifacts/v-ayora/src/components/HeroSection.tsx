@@ -21,7 +21,7 @@ export default function HeroSection() {
         className="absolute inset-0 z-0"
       >
         <img 
-          src="/attached_assets/generated_images/hero-desert-night.jpg"
+          src="/images/hero-desert-night.jpg"
           alt="V. Ayora installation in the desert"
           className="w-full h-full object-cover opacity-60"
         />
